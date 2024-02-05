@@ -1,33 +1,48 @@
 # BeyondMarkdown
 
-Welcome to BeyondMarkdown, the Chrome Extension that transforms your D&D Beyond character notes from markdown to stunning HTML! Dive into an enhanced note-taking experience, making your adventures and character development as vivid in text as they are in imagination.
+Welcome to BeyondMarkdown, a Chrome Extension designed to enhance your D&D Beyond experience by seamlessly converting markdown in character notes into beautifully formatted HTML. This extension makes note-taking more efficient and readable, allowing you to focus on crafting your adventure without worrying about formatting.
 
 ## Features
 
-- **Seamless Conversion**: Automatically converts markdown in D&D Beyond character notes into formatted HTML.
-- **Easy to Use**: Works right out of the box - no setup required.
-- **Designed for D&D Beyond**: Tailored specifically for D&D Beyond character pages, enhancing your RPG experience.
+- **Seamless Conversion**: Automatically converts markdown syntax within D&D Beyond character notes into formatted HTML.
+- **Customizable**: Choose to format all content as markdown or only content within specific tags, offering flexibility in how your notes are displayed.
+- **User-Friendly Settings**: Easily adjust your preferences directly from the extension's popup.
+- **Designed for D&D Beyond**: Specifically tailored to work with D&D Beyond character pages.
 
 ## Installation
 
-1. **Download the Extension**: Clone this repo or download the ZIP file.
+1. **Download the Extension**: Clone this repository or download it as a ZIP file and unpack it.
 2. **Open Chrome Extensions**: Navigate to `chrome://extensions/` in your Chrome browser.
-3. **Enable Developer Mode**: Toggle the developer mode switch on the top right.
-4. **Load Unpacked**: Click "Load unpacked" and select the directory where you saved BeyondMarkdown.
-5. **Enjoy**: Head over to D&D Beyond, open your character notes, and start writing in markdown!
+3. **Enable Developer Mode**: Find the toggle switch in the top-right corner of the extensions page and ensure Developer Mode is turned on.
+4. **Load Unpacked Extension**: Click the "Load unpacked" button and select the directory where you extracted BeyondMarkdown.
+5. **Enjoy**: Visit D&D Beyond, navigate to your character notes, and start using markdown!
 
 ## How to Use
 
-Simply wrap your notes within `[ot-markdown]` and `[/ot-markdown]` tags in any character note field on D&D Beyond. BeyondMarkdown does the rest, converting your markdown syntax into beautifully formatted HTML.
+- **For All Content**: Simply start writing in markdown within your character notes. BeyondMarkdown will automatically convert your markdown syntax into HTML.
+- **For Content Inside Tags Only**: Wrap the markdown you want to convert in `[ot-markdown]...[/ot-markdown]` tags. Adjust the tag via the extension's settings if needed.
+
+### Adjusting Settings
+
+Click on the BeyondMarkdown icon in your browser's extension area to access settings:
+- Choose between formatting all content or only content within custom tags.
+- Specify a custom tag if you're using the tag-specific formatting option.
+
+## Custom Tag Configuration
+
+When selecting to format content inside specific tags, you can define your custom tag in the extension's popup settings. This tag will be used to identify the markdown content that should be converted.
 
 ## Support
 
-Encountered a bug 🐛 or have a feature request 🌟? Open an issue and we'll get on it faster than you can roll a nat 20!
+Encountered a bug or have a feature request? Feel free to [open an issue](https://github.com/your-repo/beyondmarkdown/issues) on GitHub. We appreciate your feedback and contributions to make BeyondMarkdown even better!
 
 ## License
 
-BeyondMarkdown is released under the [MIT License](LICENSE). Feel free to use, modify, and distribute it as you see fit.
+BeyondMarkdown is released under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Acknowledgements
 
-A big shoutout to the D&D community and all the adventurers out there making epic stories every day. This project is for you!
+A big thank you to the D&D community and all the digital adventurers out there. This project is for you, inspired by the stories we create together.
+
+---
+Enjoy using BeyondMarkdown for your D&D Beyond adventures, and may your notes be as legendary as your campaigns!

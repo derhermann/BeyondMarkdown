@@ -9,6 +9,16 @@ Welcome to BeyondMarkdown, a Chrome Extension designed to enhance your D&D Beyon
 - **User-Friendly Settings**: Easily adjust your preferences directly from the extension's popup.
 - **Designed for D&D Beyond**: Specifically tailored to work with D&D Beyond character pages.
 
+## Screenshots
+
+### Example Formatting
+
+![Example Formatting](screenshots/example-formatting.png "Example Formatting")
+
+### Extension Popup
+
+![Extension Popup](screenshots/extension-popup.png "Extension Popup")
+
 ## Installation
 
 1. **Download the Extension**: Clone this repository or download it as a ZIP file and unpack it.

@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdown Converter Popup</title>
+    <title>Settings</title>
+    <style>
+        body { width: 200px; padding: 10px; }
+    </style>
 </head>
 <body>
-    <h1>Markdown to HTML Converter</h1>
-    <p>Click the extension icon while on a D&D Beyond character page to convert markdown to HTML!</p>
+    <h1>Settings</h1>
+    <form id="settingsForm">
+        <label>
+            <input type="radio" name="formattingStyle" value="all">
+            Format all content
+        </label><br>
+        <label>
+            <input type="radio" name="formattingStyle" value="tags">
+            Format inside tags only
+        </label>
+        <button type="submit">Save</button>
+    </form>
+    <script src="popup.js"></script>
 </body>
 </html>

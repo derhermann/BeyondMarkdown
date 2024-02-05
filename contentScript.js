@@ -66,19 +66,34 @@ function convertMarkdownToHTML(markdown) {
 }
 
 function convertContent(container) {
-    container.querySelectorAll('.ct-notes__note').forEach(element => {
-        var markdownText = element.innerText.match(/\[ot-markdown\](.*?)\[\/ot-markdown\]/s);
-        if (markdownText && markdownText.length > 1) {
-            var htmlContent = convertMarkdownToHTML(markdownText[1]);
-            element.innerHTML = htmlContent;
-            element.classList.add('ot-beyondmarkdown-replaced');
-        }
+    chrome.storage.sync.get('formattingStyle', function (data) {
+        const formatStyle = data.formattingStyle || 'tags'; // Default to 'tags'
+        container.querySelectorAll('.ct-notes__note').forEach(element => {
+            if (formatStyle === 'tags') {
+                // format only content with the ot-markdown tags
+                var markdownText = element.innerText.match(/\[ot-markdown\](.*?)\[\/ot-markdown\]/s);
+                if (markdownText && markdownText.length > 1) {
+                    var htmlContent = convertMarkdownToHTML(markdownText[1]);
+                    element.innerHTML = htmlContent;
+                    element.classList.add('ot-beyondmarkdown-replaced');
+                }
+            } else {
+                // format all content in .ct-notes__note elements
+                var htmlContent = convertMarkdownToHTML(element.innerText);
+                element.innerHTML = htmlContent;
+                element.classList.add('ot-beyondmarkdown-replaced');
+            }
+        });
     });
 }
 
-convertContent(document);
+// You might want to adjust or move the initial convertContent(document) call
+// to ensure it runs after the storage value is retrieved.
 
-window.onload = function() {
+
+// convertContent(document);
+
+window.onload = function () {
     // Set a timeout if you want an additional delay
     setTimeout(setUpObserver, 3000); // Adjust the 500ms delay as needed
 };

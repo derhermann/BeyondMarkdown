@@ -53,8 +53,8 @@ function convertMarkdownToHTML(markdown) {
         .replace(/^# (.*$)/gim, '<h1>$1</h1>')
         .replace(/^\- (.*$)/gim, '<ul><li>$1</li></ul>')
         .replace(/<\/ul>\n<ul>/gim, '')
-        .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
-        .replace(/\*(.*)\*/gim, '<em>$1</em>')
+        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>') // Make non-greedy
+        .replace(/\*(.*?)\*/gim, '<em>$1</em>') // Make non-greedy
         .split('\n').map(line => {
             if (line.match(/^(<h1>|<h2>|<h3>|<ul>|<li>|<strong>|<em>)/)) {
                 return line;
@@ -64,6 +64,7 @@ function convertMarkdownToHTML(markdown) {
         }).join('');
     return markdown.trim();
 }
+
 
 function convertContent(container) {
     chrome.storage.sync.get(['formattingStyle', 'customTag'], function (data) {

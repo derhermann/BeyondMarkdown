@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+/**
+ * The function toggles the display of a tag input container based on the selected value of a radio
+ * button.
+ */
 function toggleCustomTagInput() {
     const tagInputContainer = document.getElementById('tagInputContainer');
     if (document.querySelector('input[name="formattingStyle"]:checked').value === 'tags') {
@@ -16,6 +20,13 @@ function toggleCustomTagInput() {
     }
 }
 
+/**
+ * The `saveOptions` function saves the selected formatting style and custom tag to the Chrome storage
+ * and closes the window.
+ * @param e - The parameter "e" is an event object that is passed to the function when it is called. It
+ * is commonly used in event handlers to access information about the event that occurred, such as the
+ * target element or the event type. In this case, it is used to prevent the default behavior of a
+ */
 function saveOptions(e) {
     e.preventDefault();
     const formattingStyle = document.querySelector('input[name="formattingStyle"]:checked').value;
@@ -25,6 +36,10 @@ function saveOptions(e) {
     });
 }
 
+/**
+ * The `restoreOptions` function retrieves the saved options from Chrome storage and updates the
+ * corresponding input elements in the HTML page.
+ */
 function restoreOptions() {
     chrome.storage.sync.get({formattingStyle: 'tags', customTag: 'ot-markdown'}, function(items) {
         document.querySelector(`input[name="formattingStyle"][value="${items.formattingStyle}"]`).checked = true;

@@ -20,6 +20,10 @@ if (!existingStyles) {
     document.head.appendChild(otStyle);
 }
 
+/**
+ * The function sets up a mutation observer to watch for changes in the DOM subtree of an element with
+ * the class "ddbc-tab-list" and calls the handleMutations function when mutations occur.
+ */
 function setUpObserver() {
     var targetNode = document.querySelector('.ddbc-tab-list');
 
@@ -30,6 +34,17 @@ function setUpObserver() {
     }
 }
 
+/**
+ * The function `handleMutations` takes in a list of mutations and an observer, and it checks if any
+ * added nodes or their children match a specific criteria, and if so, it calls the `convertContent`
+ * function on the parent node to handle its entire subtree.
+ * @param mutations - The `mutations` parameter is an array of MutationRecord objects. Each
+ * MutationRecord object represents a single mutation that occurred in the observed DOM. The array
+ * contains all the mutations that were observed since the last time the observer's callback function
+ * was called.
+ * @param observer - The observer parameter is an instance of the MutationObserver class. It is used to
+ * observe changes in the DOM and trigger the handleMutations function when mutations occur.
+ */
 function handleMutations(mutations, observer) {
     mutations.forEach(mutation => {
         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
@@ -47,6 +62,13 @@ function handleMutations(mutations, observer) {
 }
 
 
+/**
+ * The `convertMarkdownToHTML` function converts Markdown text into HTML markup.
+ * @param markdown - The `markdown` parameter is a string that represents the markdown content that you
+ * want to convert to HTML.
+ * @returns The function `convertMarkdownToHTML` returns the converted HTML string from the given
+ * markdown input.
+ */
 function convertMarkdownToHTML(markdown) {
     markdown = markdown.replace(/^### (.*$)/gim, '<h3>$1</h3>')
         .replace(/^## (.*$)/gim, '<h2>$1</h2>')
@@ -66,6 +88,13 @@ function convertMarkdownToHTML(markdown) {
 }
 
 
+/**
+ * The `convertContent` function converts content within a specified container from Markdown format to
+ * HTML format, based on the specified formatting style and custom tag.
+ * @param container - The `container` parameter is the DOM element that contains the content you want
+ * to convert. It is expected to be a valid DOM element, such as a div or a section, that contains the
+ * content you want to convert.
+ */
 function convertContent(container) {
     chrome.storage.sync.get(['formattingStyle', 'customTag'], function (data) {
         const formatStyle = data.formattingStyle || 'tags'; // Default to 'tags'
@@ -94,5 +123,5 @@ function convertContent(container) {
 
 window.onload = function () {
     // Set a timeout if you want an additional delay
-    setTimeout(setUpObserver, 3000); // Adjust the 500ms delay as needed
+    setTimeout(setUpObserver, 3000);
 };

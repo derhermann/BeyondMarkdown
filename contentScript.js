@@ -66,12 +66,15 @@ function convertMarkdownToHTML(markdown) {
 }
 
 function convertContent(container) {
-    chrome.storage.sync.get('formattingStyle', function (data) {
+    chrome.storage.sync.get(['formattingStyle', 'customTag'], function (data) {
         const formatStyle = data.formattingStyle || 'tags'; // Default to 'tags'
+        const customTag = data.customTag || 'ot-markdown'; // Default tag
+        const tagRegex = new RegExp(`\\[${customTag}\\](.*?)\\[\\/${customTag}\\]`, 's'); // Dynamic regex based on customTag
+
         container.querySelectorAll('.ct-notes__note').forEach(element => {
             if (formatStyle === 'tags') {
-                // format only content with the ot-markdown tags
-                var markdownText = element.innerText.match(/\[ot-markdown\](.*?)\[\/ot-markdown\]/s);
+                // format only content with the custom tags
+                var markdownText = element.innerText.match(tagRegex);
                 if (markdownText && markdownText.length > 1) {
                     var htmlContent = convertMarkdownToHTML(markdownText[1]);
                     element.innerHTML = htmlContent;
@@ -87,11 +90,6 @@ function convertContent(container) {
     });
 }
 
-// You might want to adjust or move the initial convertContent(document) call
-// to ensure it runs after the storage value is retrieved.
-
-
-// convertContent(document);
 
 window.onload = function () {
     // Set a timeout if you want an additional delay

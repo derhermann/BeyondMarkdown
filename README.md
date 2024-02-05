@@ -9,6 +9,41 @@ Welcome to BeyondMarkdown, a Chrome Extension designed to enhance your D&D Beyon
 - **User-Friendly Settings**: Easily adjust your preferences directly from the extension's popup.
 - **Designed for D&D Beyond**: Specifically tailored to work with D&D Beyond character pages.
 
+## Supported Markdown Syntax
+
+Here's a quick guide to the markdown formatting you can use:
+
+### Headers
+
+Create headers by prefixing your text with #, ##, or ### for different levels of headings.
+
+```markdown
+# Header 1
+## Header 2
+### Header 3
+```
+
+### Emphasis
+
+Emphasize text using * for italics and ** for bold.
+
+- *italic* for italic text
+- **bold** for bold text
+
+``` markdown
+*italic* and **bold**
+```
+
+### Lists
+
+Organize your information with bullet lists using -.
+
+```markdown
+- Item 1
+- Item 2
+- Item 3
+```
+
 ## Screenshots
 
 ### Example Formatting
